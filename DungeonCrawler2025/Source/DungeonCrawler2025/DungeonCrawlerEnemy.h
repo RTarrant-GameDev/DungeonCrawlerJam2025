@@ -12,7 +12,7 @@
  * 
  */
 UCLASS()
-class DUNGEONCRAWLER2025_API ADungeonCrawlerEnemy : public ADungeonCrawlerActor
+class DUNGEONCRAWLER2025_API ADungeonCrawlerEnemy : public AActor
 {
 	GENERATED_BODY()
 	

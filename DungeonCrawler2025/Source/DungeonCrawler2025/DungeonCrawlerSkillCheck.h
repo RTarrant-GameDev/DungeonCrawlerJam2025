@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class DUNGEONCRAWLER2025_API ADungeonCrawlerSkillCheck : public ADungeonCrawlerActor
+class DUNGEONCRAWLER2025_API ADungeonCrawlerSkillCheck : public AActor
 {
 	GENERATED_BODY()
 
