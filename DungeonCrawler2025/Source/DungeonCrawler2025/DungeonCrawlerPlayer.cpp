@@ -14,6 +14,8 @@ void ADungeonCrawlerPlayer::BeginPlay()
 
 	PlayerHealthComponent->SetMaxHealth(12);
 	PlayerHealthComponent->SetCurrentHealth(12);
+
+	PlayerCombatComponent->SetArmorClass(14);
 }
 
 void ADungeonCrawlerPlayer::Tick(float DeltaTime)

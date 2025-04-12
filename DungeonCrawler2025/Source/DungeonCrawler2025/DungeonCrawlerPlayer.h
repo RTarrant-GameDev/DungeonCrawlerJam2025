@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "DungeonCrawlerActor.h"
 #include "HealthComponent.h"
+#include "CombatComponent.h"
 #include "DungeonCrawlerPlayer.generated.h"
 
 /**
@@ -21,6 +22,9 @@ public:
 #pragma region Components
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health")
 	class UHealthComponent* PlayerHealthComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Combat")
+	class UCombatComponent* PlayerCombatComponent;
 #pragma endregion Components
 
 protected:

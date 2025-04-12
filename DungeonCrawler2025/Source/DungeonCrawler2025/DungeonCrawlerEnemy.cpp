@@ -14,6 +14,8 @@ void ADungeonCrawlerEnemy::BeginPlay()
 
 	EnemyHealthComponent->SetMaxHealth(12);
 	EnemyHealthComponent->SetMaxHealth(12);
+
+	EnemyCombatComponent->SetArmorClass(10);
 }
 
 void ADungeonCrawlerEnemy::Tick(float DeltaTime)
