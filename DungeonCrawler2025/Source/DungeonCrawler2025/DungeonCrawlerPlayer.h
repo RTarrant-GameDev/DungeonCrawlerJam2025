@@ -6,6 +6,7 @@
 #include "DungeonCrawlerActor.h"
 #include "HealthComponent.h"
 #include "CombatComponent.h"
+#include "SkillCheckComponent.h"
 #include "DungeonCrawlerPlayer.generated.h"
 
 /**
@@ -25,6 +26,10 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Combat")
 	class UCombatComponent* PlayerCombatComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Skill Check")
+	class USkillCheckComponent* PlayerSkillCheckComponent;
+
 #pragma endregion Components
 
 protected:

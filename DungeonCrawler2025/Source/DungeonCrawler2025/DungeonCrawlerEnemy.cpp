@@ -6,6 +6,7 @@
 ADungeonCrawlerEnemy::ADungeonCrawlerEnemy()
 {
 	EnemyHealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
+	EnemyCombatComponent = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
 }
 
 void ADungeonCrawlerEnemy::BeginPlay()

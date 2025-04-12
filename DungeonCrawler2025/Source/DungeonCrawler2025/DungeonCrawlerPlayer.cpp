@@ -6,6 +6,8 @@
 ADungeonCrawlerPlayer::ADungeonCrawlerPlayer()
 {
 	PlayerHealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
+	PlayerCombatComponent = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
+	PlayerSkillCheckComponent = CreateDefaultSubobject<USkillCheckComponent>(TEXT("SkillCheckComponent"));
 }
 
 void ADungeonCrawlerPlayer::BeginPlay()
