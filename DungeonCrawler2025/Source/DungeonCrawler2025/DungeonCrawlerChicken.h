@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "DungeonCrawlerActor.h"
+#include "HealthComponent.h"
 #include "DungeonCrawlerChicken.generated.h"
 
 /**
@@ -14,4 +15,15 @@ class DUNGEONCRAWLER2025_API ADungeonCrawlerChicken : public ADungeonCrawlerActo
 {
 	GENERATED_BODY()
 	
+public:
+	ADungeonCrawlerChicken();
+
+#pragma region Components
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health")
+	class UHealthComponent* ChickenHealthComponent;
+#pragma endregion Components
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 };

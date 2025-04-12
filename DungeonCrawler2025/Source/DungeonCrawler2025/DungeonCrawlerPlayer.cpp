@@ -5,11 +5,15 @@
 
 ADungeonCrawlerPlayer::ADungeonCrawlerPlayer()
 {
+	PlayerHealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
 }
 
 void ADungeonCrawlerPlayer::BeginPlay()
 {
 	Super::BeginPlay();
+
+	PlayerHealthComponent->SetMaxHealth(12);
+	PlayerHealthComponent->SetCurrentHealth(12);
 }
 
 void ADungeonCrawlerPlayer::Tick(float DeltaTime)

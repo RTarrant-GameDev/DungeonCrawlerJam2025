@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "DungeonCrawlerActor.h"
+#include "HealthComponent.h"
 #include "DungeonCrawlerPlayer.generated.h"
 
 /**
@@ -16,6 +17,11 @@ class DUNGEONCRAWLER2025_API ADungeonCrawlerPlayer : public ADungeonCrawlerActor
 	
 public:
 	ADungeonCrawlerPlayer();
+
+#pragma region Components
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health")
+	class UHealthComponent* PlayerHealthComponent;
+#pragma endregion Components
 
 protected:
 	// Called when the game starts or when spawned

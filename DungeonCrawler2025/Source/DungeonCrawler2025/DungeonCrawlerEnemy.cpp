@@ -5,11 +5,15 @@
 
 ADungeonCrawlerEnemy::ADungeonCrawlerEnemy()
 {
+	EnemyHealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
 }
 
 void ADungeonCrawlerEnemy::BeginPlay()
 {
 	Super::BeginPlay();
+
+	EnemyHealthComponent->SetMaxHealth(12);
+	EnemyHealthComponent->SetMaxHealth(12);
 }
 
 void ADungeonCrawlerEnemy::Tick(float DeltaTime)

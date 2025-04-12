@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "DungeonCrawlerActor.h"
+#include "HealthComponent.h"
 #include "DungeonCrawlerEnemy.generated.h"
 
 /**
@@ -17,6 +18,11 @@ class DUNGEONCRAWLER2025_API ADungeonCrawlerEnemy : public ADungeonCrawlerActor
 public:
 	// Sets default values for this actor's properties
 	ADungeonCrawlerEnemy();
+
+#pragma region Components
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health")
+	class UHealthComponent* EnemyHealthComponent;
+#pragma endregion Components
 
 protected:
 	// Called when the game starts or when spawned
