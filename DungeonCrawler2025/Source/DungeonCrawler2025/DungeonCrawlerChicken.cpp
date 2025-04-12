@@ -5,11 +5,9 @@
 
 ADungeonCrawlerChicken::ADungeonCrawlerChicken()
 {
-	ChickenHealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
 }
 
 void ADungeonCrawlerChicken::BeginPlay()
 {
-	ChickenHealthComponent->SetMaxHealth(1);
-	ChickenHealthComponent->SetMaxHealth(1);
+
 }

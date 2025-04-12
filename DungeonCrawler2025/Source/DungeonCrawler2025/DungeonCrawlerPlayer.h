@@ -3,9 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "DungeonCrawlerActor.h"
-#include "HealthComponent.h"
-#include "CombatComponent.h"
+#include "DungeonCrawlerPawn.h"
 #include "SkillCheckComponent.h"
 #include "DungeonCrawlerPlayer.generated.h"
 
@@ -13,7 +11,7 @@
  * 
  */
 UCLASS()
-class DUNGEONCRAWLER2025_API ADungeonCrawlerPlayer : public ADungeonCrawlerActor
+class DUNGEONCRAWLER2025_API ADungeonCrawlerPlayer : public ADungeonCrawlerPawn
 {
 	GENERATED_BODY()
 	
@@ -21,15 +19,8 @@ public:
 	ADungeonCrawlerPlayer();
 
 #pragma region Components
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health")
-	class UHealthComponent* PlayerHealthComponent;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Combat")
-	class UCombatComponent* PlayerCombatComponent;
-
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Skill Check")
 	class USkillCheckComponent* PlayerSkillCheckComponent;
-
 #pragma endregion Components
 
 protected:

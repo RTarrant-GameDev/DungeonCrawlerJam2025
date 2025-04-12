@@ -4,9 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "DungeonCrawlerActor.h"
+#include "DiceRollManager.h"
 #include "CombatComponent.generated.h"
 
+class ADungeonCrawlerActor;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class DUNGEONCRAWLER2025_API UCombatComponent : public UActorComponent
@@ -29,8 +30,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	ADungeonCrawlerActor* Target;
 
-	/*UPROPERTY(EditAnywhere)
-	ADiceRollManager* DiceRoll;*/
+	UPROPERTY(EditAnywhere)
+	ADiceRollManager* DiceRoll;
 
 	UFUNCTION(BlueprintCallable, Category = "Damage")
 	int32 DamageRoll();

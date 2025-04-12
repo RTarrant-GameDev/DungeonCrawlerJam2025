@@ -2,6 +2,7 @@
 
 
 #include "SkillCheckComponent.h"
+#include <Kismet/GameplayStatics.h>
 
 // Sets default values for this component's properties
 USkillCheckComponent::USkillCheckComponent()
@@ -19,8 +20,10 @@ void USkillCheckComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//Add code for getting DiceRoll Manager here
-	
+	TArray<AActor*> FoundActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ADiceRollManager::StaticClass(), FoundActors);
+
+	DiceRoll = Cast<ADiceRollManager>(FoundActors[0]);
 }
 
 

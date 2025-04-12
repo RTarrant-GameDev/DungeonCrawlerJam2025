@@ -2,6 +2,7 @@
 
 
 #include "CombatComponent.h"
+#include <Kismet/GameplayStatics.h>
 
 UCombatComponent::UCombatComponent()
 {
@@ -11,14 +12,15 @@ void UCombatComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//Add code for getting DiceRoll Manager here
+	TArray<AActor*> FoundActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ADiceRollManager::StaticClass(), FoundActors);
+
+	DiceRoll = Cast<ADiceRollManager>(FoundActors[0]);
 }
 
 int32 UCombatComponent::DamageRoll()
 {
-	//add damage roll code here
-	int32 Damage = 6;
-	return Damage;
+	return DiceRoll->DiceRoll(6);
 }
 
 void UCombatComponent::Attack()
