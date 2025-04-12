@@ -3,26 +3,24 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "DungeonCrawlerActor.h"
-#include "DungeonCrawlerSkillCheck.generated.h"
+#include "GameFramework/Actor.h"
+#include "DungeonCrawlerActor.generated.h"
 
-/**
- * 
- */
 UCLASS()
-class DUNGEONCRAWLER2025_API ADungeonCrawlerSkillCheck : public ADungeonCrawlerActor
+class DUNGEONCRAWLER2025_API ADungeonCrawlerActor : public AActor
 {
 	GENERATED_BODY()
-
-public:
+	
+public:	
 	// Sets default values for this actor's properties
-	ADungeonCrawlerSkillCheck();
+	ADungeonCrawlerActor();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:
+public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
 };
