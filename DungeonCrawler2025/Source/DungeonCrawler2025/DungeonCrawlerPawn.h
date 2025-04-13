@@ -7,6 +7,7 @@
 #include "HealthComponent.h"
 #include "CombatComponent.h"
 #include "LineTraceComponent.h"
+#include "DungeonCrawlerMovementComponent.h"
 #include "DungeonCrawlerPawn.generated.h"
 
 /**
@@ -30,6 +31,9 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement")
 	class ULineTraceComponent* PawnLineTraceComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement")
+	class UDungeonCrawlerMovementComponent* PawnMovementComponent;
 
 #pragma endregion Components
 

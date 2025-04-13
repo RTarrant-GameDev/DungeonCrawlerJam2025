@@ -33,4 +33,11 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void PlayerRotateLeft();
+	void PlayerRotateRight();
+	void PlayerMoveForward();
+	void PlayerMoveBackward();
+	void PlayerMoveLeft();
+	void PlayerMoveRight();
 };

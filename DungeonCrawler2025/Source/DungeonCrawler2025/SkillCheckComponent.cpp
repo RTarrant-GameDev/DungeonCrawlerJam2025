@@ -37,9 +37,7 @@ void USkillCheckComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 
 int32 USkillCheckComponent::SkillCheckRoll()
 {
-	//add dice roll code here
-	int32 Placeholder = 6;
-	return Placeholder;
+	return DiceRoll->DiceRoll(20);
 }
 
 void USkillCheckComponent::SetTarget(ADungeonCrawlerActor* TargetToSet)

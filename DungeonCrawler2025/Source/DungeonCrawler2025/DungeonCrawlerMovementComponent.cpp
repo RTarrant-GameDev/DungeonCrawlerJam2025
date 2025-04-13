@@ -2,6 +2,7 @@
 
 
 #include "DungeonCrawlerMovementComponent.h"
+#include "DungeonCrawlerPawn.h"
 
 // Sets default values for this component's properties
 UDungeonCrawlerMovementComponent::UDungeonCrawlerMovementComponent()
@@ -48,20 +49,45 @@ void UDungeonCrawlerMovementComponent::LeftRotate()
 
 void UDungeonCrawlerMovementComponent::MoveForward()
 {
-	FVector TargetLocation = GetOwner()->GetActorLocation() - (GetOwner()->GetActorForwardVector() * SnapDistance);
+	FVector TargetLocation = GetOwner()->GetActorLocation() + (GetOwner()->GetActorForwardVector() * SnapDistance);
 
-	GetOwner()->SetActorLocation(TargetLocation);
+	ADungeonCrawlerActor* NeighbouringActor;
+
+	if (!Cast<ADungeonCrawlerPawn>(GetOwner())->PawnLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
+		GetOwner()->SetActorLocation(TargetLocation);
+	}
 }
 
 void UDungeonCrawlerMovementComponent::MoveBackward()
 {
+	FVector TargetLocation = GetOwner()->GetActorLocation() - (GetOwner()->GetActorForwardVector() * SnapDistance);
+
+	ADungeonCrawlerActor* NeighbouringActor;
+
+	if (!Cast<ADungeonCrawlerPawn>(GetOwner())->PawnLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
+		GetOwner()->SetActorLocation(TargetLocation);
+	}
 }
 
 void UDungeonCrawlerMovementComponent::MoveRight()
 {
+	FVector TargetLocation = GetOwner()->GetActorLocation() + (GetOwner()->GetActorRightVector() * SnapDistance);
+
+	ADungeonCrawlerActor* NeighbouringActor;
+
+	if (!Cast<ADungeonCrawlerPawn>(GetOwner())->PawnLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
+		GetOwner()->SetActorLocation(TargetLocation);
+	}
 }
 
 void UDungeonCrawlerMovementComponent::MoveLeft()
 {
+	FVector TargetLocation = GetOwner()->GetActorLocation() - (GetOwner()->GetActorRightVector() * SnapDistance);
+
+	ADungeonCrawlerActor* NeighbouringActor;
+
+	if (!Cast<ADungeonCrawlerPawn>(GetOwner())->PawnLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
+		GetOwner()->SetActorLocation(TargetLocation);
+	}
 }
 
