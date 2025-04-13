@@ -3,6 +3,8 @@
 
 #include "CombatComponent.h"
 #include <Kismet/GameplayStatics.h>
+#include "DiceRollManager.h"
+#include "DungeonCrawlerActor.h"
 
 UCombatComponent::UCombatComponent()
 {
@@ -25,7 +27,13 @@ int32 UCombatComponent::DamageRoll()
 
 void UCombatComponent::Attack()
 {
-	//add dice roll code here
+	int32 HitDie = DiceRoll->DiceRoll(20);
+
+	if (HitDie >= Target->ActorCombatComponent->ArmorClass) {
+		int32 Damage = DamageRoll();
+
+		Target->ActorHealthComponent->SubtractHealth(Damage);
+	}
 }
 
 void UCombatComponent::SetTarget(ADungeonCrawlerActor* TargetToSet)

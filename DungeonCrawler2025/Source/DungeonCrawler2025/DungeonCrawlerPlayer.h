@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "DungeonCrawlerPawn.h"
+#include "DungeonCrawlerActor.h"
 #include "SkillCheckComponent.h"
 #include "DungeonCrawlerPlayer.generated.h"
 
@@ -11,20 +11,21 @@
  * 
  */
 UCLASS()
-class DUNGEONCRAWLER2025_API ADungeonCrawlerPlayer : public ADungeonCrawlerPawn
+class DUNGEONCRAWLER2025_API ADungeonCrawlerPlayer : public ADungeonCrawlerActor
 {
 	GENERATED_BODY()
 	
 public:
 	ADungeonCrawlerPlayer();
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 #pragma region Components
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Skill Check")
 	class USkillCheckComponent* PlayerSkillCheckComponent;
+
 #pragma endregion Components
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 protected:
 	// Called when the game starts or when spawned

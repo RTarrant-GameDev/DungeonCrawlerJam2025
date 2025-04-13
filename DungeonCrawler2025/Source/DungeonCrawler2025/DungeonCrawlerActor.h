@@ -4,6 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "HealthComponent.h"
+#include "CombatComponent.h"
+#include "LineTraceComponent.h"
+#include "DungeonCrawlerMovementComponent.h"
 #include "DungeonCrawlerActor.generated.h"
 
 UCLASS()
@@ -15,6 +19,23 @@ public:
 	// Sets default values for this actor's properties
 	ADungeonCrawlerActor();
 
+#pragma region Components
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health")
+	class UHealthComponent* ActorHealthComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Combat")
+	class UCombatComponent* ActorCombatComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement")
+	class ULineTraceComponent* ActorLineTraceComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement")
+	class UDungeonCrawlerMovementComponent* ActorMovementComponent;
+
+#pragma endregion Components
+
+	ADungeonCrawlerActor* NeighbouringPawn;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -23,4 +44,12 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+private:
+#pragma region Stats
+	UPROPERTY(EditAnywhere)
+	int32 HealthValue;
+
+	UPROPERTY(EditAnywhere)
+	int32 ArmorClassValue;
+#pragma endregion Stats
 };

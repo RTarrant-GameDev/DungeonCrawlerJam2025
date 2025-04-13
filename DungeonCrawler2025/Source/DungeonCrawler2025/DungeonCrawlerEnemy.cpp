@@ -10,10 +10,15 @@ ADungeonCrawlerEnemy::ADungeonCrawlerEnemy()
 void ADungeonCrawlerEnemy::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
 
 void ADungeonCrawlerEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	if (NeighbouringPawn != nullptr) {
+		if (NeighbouringPawn->IsA(ADungeonCrawlerEnemy::StaticClass())) {
+			ActorCombatComponent->SetTarget(NeighbouringPawn);
+		}
+	}
 }

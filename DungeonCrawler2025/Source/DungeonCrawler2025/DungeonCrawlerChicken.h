@@ -3,14 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "DungeonCrawlerPawn.h"
+#include "DungeonCrawlerActor.h"
+#include "HealthComponent.h"
+#include "CombatComponent.h"
+#include "LineTraceComponent.h"
 #include "DungeonCrawlerChicken.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class DUNGEONCRAWLER2025_API ADungeonCrawlerChicken : public ADungeonCrawlerPawn
+class DUNGEONCRAWLER2025_API ADungeonCrawlerChicken : public ADungeonCrawlerActor
 {
 	GENERATED_BODY()
 	

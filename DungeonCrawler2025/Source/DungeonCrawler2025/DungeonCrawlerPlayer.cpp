@@ -9,7 +9,6 @@
 ADungeonCrawlerPlayer::ADungeonCrawlerPlayer()
 {
 	PlayerSkillCheckComponent = CreateDefaultSubobject<USkillCheckComponent>(TEXT("SkillCheckComponent"));
-
 }
 
 void ADungeonCrawlerPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -29,6 +28,8 @@ void ADungeonCrawlerPlayer::BeginPlay()
 {
 	Super::BeginPlay();
 
+
+
 }
 
 void ADungeonCrawlerPlayer::Tick(float DeltaTime)
@@ -38,13 +39,13 @@ void ADungeonCrawlerPlayer::Tick(float DeltaTime)
 	if (GetActorRotation().Pitch > 270.0f && GetActorRotation().Pitch < 361.0f) SetActorRotation(FRotator(0.0f, 0.0f, 0.0f));
 	if (GetActorRotation().Pitch < 0.0f) SetActorRotation(FRotator(0.0f, 270.0f, 0.0f));
 
-	ADungeonCrawlerActor* NeighbouringPawn;
-
-	if (PawnLineTraceComponent->LineTraceFunct((GetActorLocation() + (GetActorForwardVector() * PawnMovementComponent->SnapDistance)), NeighbouringPawn) && NeighbouringPawn != nullptr) {
+	if (NeighbouringPawn != nullptr) {
 		if (NeighbouringPawn->IsA(ADungeonCrawlerEnemy::StaticClass()) || NeighbouringPawn->IsA(ADungeonCrawlerChicken::StaticClass())) {
-			PawnCombatComponent->SetTarget(NeighbouringPawn);
+			ActorCombatComponent->SetTarget(NeighbouringPawn);
+			PlayerSkillCheckComponent->SetTarget(nullptr);
 		}
 		else if (NeighbouringPawn->IsA(ADungeonCrawlerSkillCheck::StaticClass())) {
+			ActorCombatComponent->SetTarget(nullptr);
 			PlayerSkillCheckComponent->SetTarget(NeighbouringPawn);
 		}
 	}
@@ -52,30 +53,30 @@ void ADungeonCrawlerPlayer::Tick(float DeltaTime)
 
 void ADungeonCrawlerPlayer::PlayerRotateLeft()
 {
-	PawnMovementComponent->LeftRotate();
+	ActorMovementComponent->LeftRotate();
 }
 
 void ADungeonCrawlerPlayer::PlayerRotateRight()
 {
-	PawnMovementComponent->RightRotate();
+	ActorMovementComponent->RightRotate();
 }
 
 void ADungeonCrawlerPlayer::PlayerMoveForward()
 {
-	PawnMovementComponent->MoveForward();
+	ActorMovementComponent->MoveForward();
 }
 
 void ADungeonCrawlerPlayer::PlayerMoveBackward()
 {
-	PawnMovementComponent->MoveBackward();
+	ActorMovementComponent->MoveBackward();
 }
 
 void ADungeonCrawlerPlayer::PlayerMoveLeft()
 {
-	PawnMovementComponent->MoveLeft();
+	ActorMovementComponent->MoveLeft();
 }
 
 void ADungeonCrawlerPlayer::PlayerMoveRight()
 {
-	PawnMovementComponent->MoveRight();
+	ActorMovementComponent->MoveRight();
 }

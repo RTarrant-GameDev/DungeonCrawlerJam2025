@@ -9,5 +9,5 @@ ADungeonCrawlerChicken::ADungeonCrawlerChicken()
 
 void ADungeonCrawlerChicken::BeginPlay()
 {
-
+	Super::BeginPlay();
 }

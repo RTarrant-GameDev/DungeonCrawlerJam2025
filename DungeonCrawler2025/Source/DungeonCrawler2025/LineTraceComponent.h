@@ -4,9 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "DungeonCrawlerActor.h"
 #include "LineTraceComponent.generated.h"
 
+class ADungeonCrawlerActor;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class DUNGEONCRAWLER2025_API ULineTraceComponent : public UActorComponent

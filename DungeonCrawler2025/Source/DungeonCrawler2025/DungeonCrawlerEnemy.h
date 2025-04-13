@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "DungeonCrawlerPawn.h"
+#include "DungeonCrawlerActor.h"
 #include "DungeonCrawlerEnemy.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class DUNGEONCRAWLER2025_API ADungeonCrawlerEnemy : public ADungeonCrawlerPawn
+class DUNGEONCRAWLER2025_API ADungeonCrawlerEnemy : public ADungeonCrawlerActor
 {
 	GENERATED_BODY()
 	

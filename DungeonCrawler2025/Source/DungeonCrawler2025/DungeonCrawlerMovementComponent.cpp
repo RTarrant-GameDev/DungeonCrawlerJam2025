@@ -2,7 +2,7 @@
 
 
 #include "DungeonCrawlerMovementComponent.h"
-#include "DungeonCrawlerPawn.h"
+#include "DungeonCrawlerActor.h"
 
 // Sets default values for this component's properties
 UDungeonCrawlerMovementComponent::UDungeonCrawlerMovementComponent()
@@ -53,7 +53,7 @@ void UDungeonCrawlerMovementComponent::MoveForward()
 
 	ADungeonCrawlerActor* NeighbouringActor;
 
-	if (!Cast<ADungeonCrawlerPawn>(GetOwner())->PawnLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
+	if (!Cast<ADungeonCrawlerActor>(GetOwner())->ActorLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
 		GetOwner()->SetActorLocation(TargetLocation);
 	}
 }
@@ -64,7 +64,7 @@ void UDungeonCrawlerMovementComponent::MoveBackward()
 
 	ADungeonCrawlerActor* NeighbouringActor;
 
-	if (!Cast<ADungeonCrawlerPawn>(GetOwner())->PawnLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
+	if (!Cast<ADungeonCrawlerActor>(GetOwner())->ActorLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
 		GetOwner()->SetActorLocation(TargetLocation);
 	}
 }
@@ -75,7 +75,7 @@ void UDungeonCrawlerMovementComponent::MoveRight()
 
 	ADungeonCrawlerActor* NeighbouringActor;
 
-	if (!Cast<ADungeonCrawlerPawn>(GetOwner())->PawnLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
+	if (!Cast<ADungeonCrawlerActor>(GetOwner())->ActorLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
 		GetOwner()->SetActorLocation(TargetLocation);
 	}
 }
@@ -86,7 +86,7 @@ void UDungeonCrawlerMovementComponent::MoveLeft()
 
 	ADungeonCrawlerActor* NeighbouringActor;
 
-	if (!Cast<ADungeonCrawlerPawn>(GetOwner())->PawnLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
+	if (!Cast<ADungeonCrawlerActor>(GetOwner())->ActorLineTraceComponent->LineTraceFunct(TargetLocation, NeighbouringActor)) {
 		GetOwner()->SetActorLocation(TargetLocation);
 	}
 }
