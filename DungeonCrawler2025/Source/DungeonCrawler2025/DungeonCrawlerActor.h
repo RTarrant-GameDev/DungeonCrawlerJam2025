@@ -7,7 +7,7 @@
 #include "DungeonCrawlerActor.generated.h"
 
 UCLASS()
-class DUNGEONCRAWLER2025_API ADungeonCrawlerActor : public AActor
+class DUNGEONCRAWLER2025_API ADungeonCrawlerActor : public APawn
 {
 	GENERATED_BODY()
 	

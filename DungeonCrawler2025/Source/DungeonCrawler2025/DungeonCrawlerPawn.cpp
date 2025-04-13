@@ -7,6 +7,7 @@ ADungeonCrawlerPawn::ADungeonCrawlerPawn()
 {
 	PawnHealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
 	PawnCombatComponent = CreateDefaultSubobject<UCombatComponent>(TEXT("CombatComponent"));
+	PawnLineTraceComponent = CreateDefaultSubobject<ULineTraceComponent>(TEXT("LineTraceComponent"));
 }
 
 void ADungeonCrawlerPawn::BeginPlay()

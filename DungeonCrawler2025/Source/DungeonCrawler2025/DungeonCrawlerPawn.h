@@ -6,6 +6,7 @@
 #include "DungeonCrawlerActor.h"
 #include "HealthComponent.h"
 #include "CombatComponent.h"
+#include "LineTraceComponent.h"
 #include "DungeonCrawlerPawn.generated.h"
 
 /**
@@ -19,12 +20,16 @@ class DUNGEONCRAWLER2025_API ADungeonCrawlerPawn : public ADungeonCrawlerActor
 public:
 	ADungeonCrawlerPawn();
 
+
 #pragma region Components
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health")
 	class UHealthComponent* PawnHealthComponent;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Combat")
 	class UCombatComponent* PawnCombatComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement")
+	class ULineTraceComponent* PawnLineTraceComponent;
 
 #pragma endregion Components
 

@@ -18,6 +18,9 @@ class DUNGEONCRAWLER2025_API ADungeonCrawlerPlayer : public ADungeonCrawlerPawn
 public:
 	ADungeonCrawlerPlayer();
 
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
 #pragma region Components
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Skill Check")
 	class USkillCheckComponent* PlayerSkillCheckComponent;
