@@ -25,6 +25,7 @@ public:
 #pragma endregion MaxHealth
 
 #pragma region CurrentHealth
+	UPROPERTY(EditAnywhere, Category = "Health")
 	int32 CurrentHealth;
 
 	UFUNCTION(BlueprintCallable, Category = "Health Settings")

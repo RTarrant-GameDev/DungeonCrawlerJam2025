@@ -20,11 +20,12 @@ public:
 	ADungeonCrawlerActor();
 
 #pragma region Components
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health")
-	class UHealthComponent* ActorHealthComponent;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Combat")
 	class UCombatComponent* ActorCombatComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health")
+	class UHealthComponent* ActorHealthComponent;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Movement")
 	class ULineTraceComponent* ActorLineTraceComponent;
@@ -44,6 +45,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	virtual void HandleDeath();
 private:
 #pragma region Stats
 	UPROPERTY(EditAnywhere)
@@ -52,4 +54,5 @@ private:
 	UPROPERTY(EditAnywhere)
 	int32 ArmorClassValue;
 #pragma endregion Stats
+
 };

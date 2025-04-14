@@ -4,9 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "DungeonCrawlerActor.h"
-#include "HealthComponent.h"
-#include "CombatComponent.h"
-#include "LineTraceComponent.h"
 #include "DungeonCrawlerChicken.generated.h"
 
 /**
@@ -23,4 +20,10 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	virtual void HandleDeath() override;
+private:
+
+	UPROPERTY(VisibleAnywhere)
+	ADiceRollManager* DiceRoll;
 };
