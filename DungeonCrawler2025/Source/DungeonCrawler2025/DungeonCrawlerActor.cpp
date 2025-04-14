@@ -38,5 +38,5 @@ void ADungeonCrawlerActor::Tick(float DeltaTime)
 
 void ADungeonCrawlerActor::HandleDeath()
 {
-	Destroy();
+	this->Destroy();
 }

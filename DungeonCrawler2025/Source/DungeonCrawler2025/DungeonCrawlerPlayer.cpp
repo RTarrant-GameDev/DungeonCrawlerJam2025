@@ -9,6 +9,7 @@
 ADungeonCrawlerPlayer::ADungeonCrawlerPlayer()
 {
 	PlayerSkillCheckComponent = CreateDefaultSubobject<USkillCheckComponent>(TEXT("SkillCheckComponent"));
+	PlayerLevelComponent = CreateDefaultSubobject<ULevelComponent>(TEXT("LevelComponent"));
 }
 
 void ADungeonCrawlerPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -28,8 +29,7 @@ void ADungeonCrawlerPlayer::BeginPlay()
 {
 	Super::BeginPlay();
 
-
-
+	PlayerLevelComponent->Init();
 }
 
 void ADungeonCrawlerPlayer::Tick(float DeltaTime)

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "DungeonCrawlerActor.h"
 #include "SkillCheckComponent.h"
+#include "LevelComponent.h"
 #include "DungeonCrawlerPlayer.generated.h"
 
 /**
@@ -21,6 +22,9 @@ public:
 #pragma region Components
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Skill Check")
 	class USkillCheckComponent* PlayerSkillCheckComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Skill Check")
+	class ULevelComponent* PlayerLevelComponent;
 
 #pragma endregion Components
 

@@ -34,7 +34,7 @@ public:
 	class UDungeonCrawlerMovementComponent* ActorMovementComponent;
 
 #pragma endregion Components
-
+	UPROPERTY(VisibleAnywhere, Category = "Pawn")
 	ADungeonCrawlerActor* NeighbouringPawn;
 
 protected:
