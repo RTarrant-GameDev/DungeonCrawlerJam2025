@@ -23,6 +23,8 @@ void ADungeonCrawlerPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	PlayerInputComponent->BindAction("MoveBackward", IE_Pressed, this, &ADungeonCrawlerPlayer::PlayerMoveBackward);
 	PlayerInputComponent->BindAction("MoveRight", IE_Pressed, this, &ADungeonCrawlerPlayer::PlayerMoveRight);
 	PlayerInputComponent->BindAction("MoveLeft", IE_Pressed, this, &ADungeonCrawlerPlayer::PlayerMoveLeft);
+
+	PlayerInputComponent->BindAction("PauseGame", IE_Pressed, this, &ADungeonCrawlerPlayer::PauseGame);
 }
 
 void ADungeonCrawlerPlayer::BeginPlay()

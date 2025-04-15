@@ -45,4 +45,7 @@ public:
 	void PlayerMoveBackward();
 	void PlayerMoveLeft();
 	void PlayerMoveRight();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Pause")
+	void PauseGame();
 };
