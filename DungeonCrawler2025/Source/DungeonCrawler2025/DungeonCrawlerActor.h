@@ -37,6 +37,14 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Pawn")
 	ADungeonCrawlerActor* NeighbouringPawn;
 
+#pragma region Stats
+	UPROPERTY(EditAnywhere)
+	int32 HealthValue;
+
+	UPROPERTY(EditAnywhere)
+	int32 ArmorClassValue;
+#pragma endregion Stats
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -46,13 +54,4 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void HandleDeath();
-private:
-#pragma region Stats
-	UPROPERTY(EditAnywhere)
-	int32 HealthValue;
-
-	UPROPERTY(EditAnywhere)
-	int32 ArmorClassValue;
-#pragma endregion Stats
-
 };

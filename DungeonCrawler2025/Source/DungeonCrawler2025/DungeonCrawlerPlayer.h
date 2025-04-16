@@ -6,6 +6,7 @@
 #include "DungeonCrawlerActor.h"
 #include "SkillCheckComponent.h"
 #include "LevelComponent.h"
+#include "CharacterComponent.h"
 #include "DungeonCrawlerPlayer.generated.h"
 
 /**
@@ -23,8 +24,11 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Skill Check")
 	class USkillCheckComponent* PlayerSkillCheckComponent;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Skill Check")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Level")
 	class ULevelComponent* PlayerLevelComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Character")
+	class UCharacterComponent* PlayerCharacterComponent;
 
 #pragma endregion Components
 
@@ -38,6 +42,8 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void SetBonuses(int32 Health, int32 Attack);
 
 	void PlayerRotateLeft();
 	void PlayerRotateRight();

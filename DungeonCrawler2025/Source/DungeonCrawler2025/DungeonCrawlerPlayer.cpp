@@ -10,6 +10,7 @@ ADungeonCrawlerPlayer::ADungeonCrawlerPlayer()
 {
 	PlayerSkillCheckComponent = CreateDefaultSubobject<USkillCheckComponent>(TEXT("SkillCheckComponent"));
 	PlayerLevelComponent = CreateDefaultSubobject<ULevelComponent>(TEXT("LevelComponent"));
+	PlayerCharacterComponent = CreateDefaultSubobject<UCharacterComponent>(TEXT("CharacterComponent"));
 }
 
 void ADungeonCrawlerPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -51,6 +52,13 @@ void ADungeonCrawlerPlayer::Tick(float DeltaTime)
 			PlayerSkillCheckComponent->SetTarget(NeighbouringPawn);
 		}
 	}
+}
+
+void ADungeonCrawlerPlayer::SetBonuses(int32 Health, int32 Attack)
+{
+	ActorHealthComponent->SetMaxHealth(HealthValue + Health);
+	ActorHealthComponent->SetCurrentHealth(HealthValue + Health);
+	ActorCombatComponent->AttackBonus = Attack;
 }
 
 void ADungeonCrawlerPlayer::PlayerRotateLeft()

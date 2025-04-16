@@ -5,7 +5,9 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "DiceRollManager.h"
+#include "DungeonCrawlerSkillCheck.h"
 #include "SkillCheckComponent.generated.h"
+
 
 class ADungeonCrawlerActor;
 
@@ -23,17 +25,15 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	ADungeonCrawlerActor* Target;
+	ADungeonCrawlerSkillCheck* Target;
 
 	UPROPERTY(EditAnywhere)
 	ADiceRollManager* DiceRoll;
 
 	UFUNCTION(BlueprintCallable, Category = "Skill Check")
-	int32 SkillCheckRoll();
+	void SkillCheck();
 
 	void SetTarget(ADungeonCrawlerActor* TargetToSet);
 };

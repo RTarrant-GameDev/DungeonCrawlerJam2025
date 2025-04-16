@@ -3,6 +3,7 @@
 
 #include "SkillCheckComponent.h"
 #include <Kismet/GameplayStatics.h>
+#include "DungeonCrawlerPlayer.h"
 
 // Sets default values for this component's properties
 USkillCheckComponent::USkillCheckComponent()
@@ -26,22 +27,24 @@ void USkillCheckComponent::BeginPlay()
 	DiceRoll = Cast<ADiceRollManager>(FoundActors[0]);
 }
 
-
-// Called every frame
-void USkillCheckComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void USkillCheckComponent::SkillCheck()
 {
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	int32 SkillDie = DiceRoll->DiceRoll(20);
 
-	// ...
-}
+	if (Target->SkillCheckType == "Lockpick") {
+		SkillDie += Cast<ADungeonCrawlerPlayer>(GetOwner())->PlayerCharacterComponent->LockpickSkill;
+	}
+	else if (Target->SkillCheckType == "Arcana") {
+		SkillDie += Cast<ADungeonCrawlerPlayer>(GetOwner())->PlayerCharacterComponent->ArcanaSkill;
+	}
 
-int32 USkillCheckComponent::SkillCheckRoll()
-{
-	return DiceRoll->DiceRoll(20);
+	if (SkillDie >= (Target->SkillCheckDifficulty)) {
+		Target->HandleDeath();
+	}
 }
 
 void USkillCheckComponent::SetTarget(ADungeonCrawlerActor* TargetToSet)
 {
-	Target = TargetToSet;
+	Target = Cast<ADungeonCrawlerSkillCheck>(TargetToSet);
 }
 

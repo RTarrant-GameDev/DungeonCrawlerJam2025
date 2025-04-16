@@ -33,6 +33,8 @@ public:
 	UPROPERTY(EditAnywhere)
 	ADiceRollManager* DiceRoll;
 
+	int32 AttackBonus;
+
 	UFUNCTION(BlueprintCallable, Category = "Damage")
 	int32 DamageRoll();
 

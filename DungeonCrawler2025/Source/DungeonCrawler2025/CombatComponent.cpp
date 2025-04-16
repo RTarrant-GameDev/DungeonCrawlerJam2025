@@ -27,7 +27,7 @@ int32 UCombatComponent::DamageRoll()
 
 void UCombatComponent::Attack()
 {
-	int32 HitDie = DiceRoll->DiceRoll(20);
+	int32 HitDie = (DiceRoll->DiceRoll(20) + AttackBonus);
 
 	UE_LOG(LogTemp, Display, TEXT("%d"), HitDie);
 
