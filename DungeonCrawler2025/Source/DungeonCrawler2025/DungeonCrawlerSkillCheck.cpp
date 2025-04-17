@@ -5,6 +5,10 @@
 #include "DungeonCrawlerPlayer.h"
 #include <Kismet/GameplayStatics.h>
 
+ADungeonCrawlerSkillCheck::ADungeonCrawlerSkillCheck()
+{
+}
+
 void ADungeonCrawlerSkillCheck::BeginPlay()
 {
 	Super::BeginPlay();
@@ -13,5 +17,8 @@ void ADungeonCrawlerSkillCheck::BeginPlay()
 void ADungeonCrawlerSkillCheck::HandleDeath()
 {
 	Super::HandleDeath();
-	Cast<ADungeonCrawlerPlayer>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0))->PlayerLevelComponent->GiveXP(XPReward* Cast<ADungeonCrawlerPlayer>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0))->PlayerCharacterComponent->WisdomSkill);
+
+	ADungeonCrawlerPlayer* Player = Cast<ADungeonCrawlerPlayer>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
+	int32 PlayerWisdom = Player->PlayerCharacterComponent->WisdomSkill;
+	Player->PlayerLevelComponent->GiveXP(XPReward * PlayerWisdom);
 }
