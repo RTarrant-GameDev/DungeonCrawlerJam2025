@@ -28,6 +28,15 @@ protected:
 	
 	void AttackFunction();
 
+	UPROPERTY(EditAnywhere, Category = "Rewards")
+	int32 XPReward;
+
+	UPROPERTY(EditAnywhere, Category = "Rewards")
+	int32 ScoreReward;
+
+	UPROPERTY(EditAnywhere, Category = "Rewards")
+	int32 PerceptionDifficulty;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

@@ -25,6 +25,10 @@ void USkillCheckComponent::BeginPlay()
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ADiceRollManager::StaticClass(), FoundActors);
 
 	DiceRoll = Cast<ADiceRollManager>(FoundActors[0]);
+
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AScoreManager::StaticClass(), FoundActors);
+
+	ScoreManager = Cast<AScoreManager>(FoundActors[0]);
 }
 
 void USkillCheckComponent::SkillCheck()
@@ -39,6 +43,7 @@ void USkillCheckComponent::SkillCheck()
 	}
 
 	if (SkillDie >= (Target->SkillCheckDifficulty)) {
+		ScoreManager->AddScore(Target->ScoreReward * (Cast<ADungeonCrawlerPlayer>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0))->PlayerCharacterComponent->PerceptionSkill));
 		Target->HandleDeath();
 	}
 }

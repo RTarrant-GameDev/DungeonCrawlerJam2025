@@ -29,8 +29,6 @@ void UCombatComponent::Attack()
 {
 	int32 HitDie = (DiceRoll->DiceRoll(20) + AttackBonus);
 
-	UE_LOG(LogTemp, Display, TEXT("%d"), HitDie);
-
 	if (HitDie >= Target->ActorCombatComponent->ArmorClass) {
 		int32 Damage = DamageRoll();
 

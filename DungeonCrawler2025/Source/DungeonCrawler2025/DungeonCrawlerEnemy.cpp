@@ -20,7 +20,18 @@ void ADungeonCrawlerEnemy::HandleDeath()
 {
 	Super::HandleDeath();
 
-	Cast<ADungeonCrawlerPlayer>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0))->PlayerLevelComponent->GiveXP(5);
+	ADungeonCrawlerPlayer* Player = Cast<ADungeonCrawlerPlayer>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
+	ADiceRollManager* DiceRoll = Player->PlayerSkillCheckComponent->DiceRoll;
+
+	int32 WisdomBonus = Player->PlayerCharacterComponent->WisdomSkill;
+	int32 PerceptionBonus = Player->PlayerCharacterComponent->PerceptionSkill;
+		
+	
+	Player->PlayerLevelComponent->GiveXP(XPReward * WisdomBonus);
+
+	if ((DiceRoll->DiceRoll(20) + PerceptionBonus) >= PerceptionDifficulty) {
+		Player->PlayerSkillCheckComponent->ScoreManager->AddScore(ScoreReward * PerceptionBonus);
+	}
 }
 
 void ADungeonCrawlerEnemy::Tick(float DeltaTime)

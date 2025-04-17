@@ -5,6 +5,6 @@
 
 int32 ADiceRollManager::DiceRoll(int32 DiceSides)
 {
-	return FMath::RandRange(0, DiceSides);
+	return FMath::RandRange(1, DiceSides);
 }
 

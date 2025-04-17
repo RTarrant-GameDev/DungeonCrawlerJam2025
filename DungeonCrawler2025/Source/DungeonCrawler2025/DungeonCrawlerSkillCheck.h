@@ -23,9 +23,17 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
+	virtual void HandleDeath() override;
+
+	UPROPERTY(EditAnywhere, Category = "SkillCheck")
 	int32 SkillCheckDifficulty;
+
+	UPROPERTY(EditAnywhere, Category = "SkillCheck")
 	FString SkillCheckType;
+
+	UPROPERTY(EditAnywhere, Category = "SkillCheck")
+	int32 ScoreReward;
+	UPROPERTY(EditAnywhere, Category = "SkillCheck")
+	int32 XPReward;
 };

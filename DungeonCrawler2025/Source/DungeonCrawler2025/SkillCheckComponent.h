@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "DiceRollManager.h"
 #include "DungeonCrawlerSkillCheck.h"
+#include "ScoreManager.h"
 #include "SkillCheckComponent.generated.h"
 
 
@@ -31,6 +32,9 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	ADiceRollManager* DiceRoll;
+
+	UPROPERTY(EditAnywhere)
+	AScoreManager* ScoreManager;
 
 	UFUNCTION(BlueprintCallable, Category = "Skill Check")
 	void SkillCheck();
