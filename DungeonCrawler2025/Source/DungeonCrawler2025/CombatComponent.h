@@ -30,7 +30,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	ADungeonCrawlerActor* Target;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DiceRoll")
 	ADiceRollManager* DiceRoll;
 
 	int32 AttackBonus;
@@ -39,7 +39,7 @@ public:
 	int32 DamageRoll();
 
 	UFUNCTION(BlueprintCallable, Category = "Attack")
-	void Attack();
+	void Attack(int32 HitDie);
 
 	void SetTarget(ADungeonCrawlerActor* TargetToSet);
 

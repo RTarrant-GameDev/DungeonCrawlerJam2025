@@ -25,10 +25,8 @@ int32 UCombatComponent::DamageRoll()
 	return DiceRoll->DiceRoll(6);
 }
 
-void UCombatComponent::Attack()
+void UCombatComponent::Attack(int32 HitDie)
 {
-	int32 HitDie = (DiceRoll->DiceRoll(20) + AttackBonus);
-
 	if (HitDie >= Target->ActorCombatComponent->ArmorClass) {
 		int32 Damage = DamageRoll();
 

@@ -26,7 +26,7 @@ public:
 
 	virtual void HandleDeath() override;
 
-	UPROPERTY(EditAnywhere, Category = "SkillCheck")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SkillCheck")
 	int32 SkillCheckDifficulty;
 
 	UPROPERTY(EditAnywhere, Category = "SkillCheck")

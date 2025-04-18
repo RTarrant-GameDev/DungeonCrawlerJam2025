@@ -31,10 +31,8 @@ void USkillCheckComponent::BeginPlay()
 	ScoreManager = Cast<AScoreManager>(FoundActors[0]);
 }
 
-void USkillCheckComponent::SkillCheck()
-{
-	int32 SkillDie = DiceRoll->DiceRoll(20);
-
+void USkillCheckComponent::SkillCheck(int32 SkillDie)
+{	
 	if (Target->SkillCheckType == "Lockpick") {
 		SkillDie += Cast<ADungeonCrawlerPlayer>(GetOwner())->PlayerCharacterComponent->LockpickSkill;
 	}

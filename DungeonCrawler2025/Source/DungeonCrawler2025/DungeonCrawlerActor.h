@@ -41,7 +41,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	int32 HealthValue;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 ArmorClassValue;
 #pragma endregion Stats
 

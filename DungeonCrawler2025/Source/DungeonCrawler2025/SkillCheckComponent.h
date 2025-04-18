@@ -30,14 +30,14 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	ADungeonCrawlerSkillCheck* Target;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DiceRoll")
 	ADiceRollManager* DiceRoll;
 
 	UPROPERTY(EditAnywhere)
 	AScoreManager* ScoreManager;
 
 	UFUNCTION(BlueprintCallable, Category = "Skill Check")
-	void SkillCheck();
+	void SkillCheck(int32 SkillDie);
 
 	void SetTarget(ADungeonCrawlerActor* TargetToSet);
 };

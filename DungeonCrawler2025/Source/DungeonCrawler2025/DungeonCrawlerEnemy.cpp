@@ -48,6 +48,7 @@ void ADungeonCrawlerEnemy::Tick(float DeltaTime)
 void ADungeonCrawlerEnemy::AttackFunction()
 {
 	if (this->ActorCombatComponent->Target != nullptr) {
-		this->ActorCombatComponent->Attack();
+		int32 HitDie = this->ActorCombatComponent->DiceRoll->DiceRoll(20);
+		this->ActorCombatComponent->Attack(HitDie);
 	}
 }
