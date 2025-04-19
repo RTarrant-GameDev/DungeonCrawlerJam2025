@@ -28,7 +28,7 @@ void ADungeonCrawlerEnemy::HandleDeath()
 	int32 WisdomBonus = Player->PlayerCharacterComponent->WisdomSkill;
 	int32 PerceptionBonus = Player->PlayerCharacterComponent->PerceptionSkill;
 	
-	Player->PlayerLevelComponent->GiveXP(XPReward * WisdomBonus);
+	Player->PlayerLevelComponent->GiveXP(XPReward * 1 + (.25 * WisdomBonus));
 
 	if ((DiceRoll->DiceRoll(20) + PerceptionBonus) >= PerceptionDifficulty) {
 		Player->PlayerSkillCheckComponent->ScoreManager->AddScore(ScoreReward * 1 + (.25*PerceptionBonus));
