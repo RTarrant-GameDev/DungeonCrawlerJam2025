@@ -23,14 +23,15 @@ void ADungeonCrawlerEnemy::HandleDeath()
 	ADungeonCrawlerPlayer* Player = Cast<ADungeonCrawlerPlayer>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
 	ADiceRollManager* DiceRoll = Player->PlayerSkillCheckComponent->DiceRoll;
 
+	Player->ActorCombatComponent->SetTarget(nullptr);
+
 	int32 WisdomBonus = Player->PlayerCharacterComponent->WisdomSkill;
 	int32 PerceptionBonus = Player->PlayerCharacterComponent->PerceptionSkill;
-		
 	
 	Player->PlayerLevelComponent->GiveXP(XPReward * WisdomBonus);
 
 	if ((DiceRoll->DiceRoll(20) + PerceptionBonus) >= PerceptionDifficulty) {
-		Player->PlayerSkillCheckComponent->ScoreManager->AddScore(ScoreReward * PerceptionBonus);
+		Player->PlayerSkillCheckComponent->ScoreManager->AddScore(ScoreReward * 1 + (.25*PerceptionBonus));
 	}
 }
 

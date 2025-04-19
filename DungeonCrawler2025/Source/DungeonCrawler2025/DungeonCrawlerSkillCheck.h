@@ -29,11 +29,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SkillCheck")
 	int32 SkillCheckDifficulty;
 
-	UPROPERTY(EditAnywhere, Category = "SkillCheck")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SkillCheck")
 	FString SkillCheckType;
 
 	UPROPERTY(EditAnywhere, Category = "SkillCheck")
 	int32 ScoreReward;
 	UPROPERTY(EditAnywhere, Category = "SkillCheck")
 	int32 XPReward;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CheckStatus")
+	bool Failed;
 };

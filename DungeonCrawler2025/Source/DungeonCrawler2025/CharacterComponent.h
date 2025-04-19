@@ -28,11 +28,17 @@ public:
 	CharacterRace ChosenRace;
 
 #pragma region Skills
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int32 LockpickSkill; //for skill checks
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int32 ArcanaSkill; // for skill checks
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int32 AttackSkill; // increase attack damage
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int32 EnduranceSkill; // increase health
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int32 PerceptionSkill; // score multiplier 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stats")
 	int32 WisdomSkill; // increase XP gain
 #pragma endregion Skills
 

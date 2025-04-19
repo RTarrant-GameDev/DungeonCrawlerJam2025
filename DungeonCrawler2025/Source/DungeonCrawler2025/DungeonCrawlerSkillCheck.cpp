@@ -20,5 +20,6 @@ void ADungeonCrawlerSkillCheck::HandleDeath()
 
 	ADungeonCrawlerPlayer* Player = Cast<ADungeonCrawlerPlayer>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0));
 	int32 PlayerWisdom = Player->PlayerCharacterComponent->WisdomSkill;
+	Player->PlayerSkillCheckComponent->SetTarget(nullptr);
 	Player->PlayerLevelComponent->GiveXP(XPReward * PlayerWisdom);
 }

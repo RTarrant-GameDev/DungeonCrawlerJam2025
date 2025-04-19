@@ -52,6 +52,10 @@ void ADungeonCrawlerPlayer::Tick(float DeltaTime)
 			PlayerSkillCheckComponent->SetTarget(NeighbouringPawn);
 		}
 	}
+	else if (NeighbouringPawn == nullptr) {
+		ActorCombatComponent->SetTarget(nullptr);
+		PlayerSkillCheckComponent->SetTarget(nullptr);
+	}
 }
 
 void ADungeonCrawlerPlayer::SetBonuses(int32 Health, int32 Attack)

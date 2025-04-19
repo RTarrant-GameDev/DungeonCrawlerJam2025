@@ -33,16 +33,21 @@ void USkillCheckComponent::BeginPlay()
 
 void USkillCheckComponent::SkillCheck(int32 SkillDie)
 {	
-	if (Target->SkillCheckType == "Lockpick") {
-		SkillDie += Cast<ADungeonCrawlerPlayer>(GetOwner())->PlayerCharacterComponent->LockpickSkill;
-	}
-	else if (Target->SkillCheckType == "Arcana") {
-		SkillDie += Cast<ADungeonCrawlerPlayer>(GetOwner())->PlayerCharacterComponent->ArcanaSkill;
-	}
+	if (Target->Failed == false) {
+		if (Target->SkillCheckType == "Lockpick") {
+			SkillDie += Cast<ADungeonCrawlerPlayer>(GetOwner())->PlayerCharacterComponent->LockpickSkill;
+		}
+		else if (Target->SkillCheckType == "Arcana") {
+			SkillDie += Cast<ADungeonCrawlerPlayer>(GetOwner())->PlayerCharacterComponent->ArcanaSkill;
+		}
 
-	if (SkillDie >= (Target->SkillCheckDifficulty)) {
-		ScoreManager->AddScore(Target->ScoreReward * (Cast<ADungeonCrawlerPlayer>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0))->PlayerCharacterComponent->PerceptionSkill));
-		Target->HandleDeath();
+		if (SkillDie >= (Target->SkillCheckDifficulty)) {
+			ScoreManager->AddScore(Target->ScoreReward * 1 + .25*(Cast<ADungeonCrawlerPlayer>(UGameplayStatics::GetPlayerPawn(GetWorld(), 0))->PlayerCharacterComponent->PerceptionSkill));
+			Target->HandleDeath();
+		}
+		else if (SkillDie < (Target->SkillCheckDifficulty)) {
+			Target->Failed = true;
+		}
 	}
 }
 
