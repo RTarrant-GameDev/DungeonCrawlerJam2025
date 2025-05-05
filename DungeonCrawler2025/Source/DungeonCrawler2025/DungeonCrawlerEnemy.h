@@ -28,6 +28,9 @@ protected:
 	
 	void AttackFunction();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyDetails")
+	FString EnemyName;
+
 	UPROPERTY(EditAnywhere, Category = "Rewards")
 	int32 XPReward;
 
