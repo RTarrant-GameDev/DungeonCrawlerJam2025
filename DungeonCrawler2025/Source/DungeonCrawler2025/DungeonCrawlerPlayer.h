@@ -7,11 +7,13 @@
 #include "SkillCheckComponent.h"
 #include "LevelComponent.h"
 #include "CharacterComponent.h"
+#include "Animation/WidgetAnimation.h"
 #include "DungeonCrawlerPlayer.generated.h"
+ 
+// Forward declarations
+class UUserWidget;
+class UWidgetAnimation;
 
-/**
- * 
- */
 UCLASS()
 class DUNGEONCRAWLER2025_API ADungeonCrawlerPlayer : public ADungeonCrawlerActor
 {
@@ -32,6 +34,13 @@ public:
 
 #pragma endregion Components
 
+#pragma region Hit Variables
+
+	UPROPERTY(EditDefaultsOnly, Category = "UI")
+	TSubclassOf<UUserWidget> HitFlashWidgetClass;
+
+#pragma endregion Hit Variables
+
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -42,6 +51,8 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	virtual void DealDamage(int32 Damage) override;
 
 	void SetBonuses(int32 Health, int32 Attack);
 
@@ -54,4 +65,8 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Pause")
 	void PauseGame();
+
+private:
+	// Instance of the widget
+	UUserWidget* HitFlashWidget;
 };

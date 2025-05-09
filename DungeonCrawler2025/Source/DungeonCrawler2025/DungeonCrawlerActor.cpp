@@ -40,3 +40,8 @@ void ADungeonCrawlerActor::HandleDeath()
 {
 	this->Destroy();
 }
+
+void ADungeonCrawlerActor::DealDamage(int32 Damage)
+{
+	ActorHealthComponent->SubtractHealth(Damage);
+}

@@ -22,7 +22,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	virtual void HandleDeath() override;
 
 	FTimerHandle TimerHandle;
 	
@@ -43,4 +42,8 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	virtual void HandleDeath() override;
+
+	virtual void DealDamage(int32 Damage) override;
 };

@@ -5,6 +5,9 @@
 #include "DungeonCrawlerChicken.h"
 #include "DungeonCrawlerEnemy.h"
 #include "DungeonCrawlerSkillCheck.h"
+#include <Kismet/GameplayStatics.h>
+#include "Blueprint/UserWidget.h"
+#include <UObject/UnrealTypePrivate.h>
 
 ADungeonCrawlerPlayer::ADungeonCrawlerPlayer()
 {
@@ -33,6 +36,16 @@ void ADungeonCrawlerPlayer::BeginPlay()
 	Super::BeginPlay();
 
 	PlayerLevelComponent->Init();
+
+	if (HitFlashWidgetClass) {
+
+		HitFlashWidget = CreateWidget<UUserWidget>(GetWorld(), HitFlashWidgetClass);
+
+		if (HitFlashWidget) {
+			HitFlashWidget->AddToViewport(2);
+		}
+
+	}
 }
 
 void ADungeonCrawlerPlayer::Tick(float DeltaTime)
@@ -57,6 +70,40 @@ void ADungeonCrawlerPlayer::Tick(float DeltaTime)
 		PlayerSkillCheckComponent->SetTarget(nullptr);
 	}
 }
+
+void ADungeonCrawlerPlayer::DealDamage(int32 Damage)
+{
+	Super::DealDamage(Damage);
+
+	if (HitSound) {
+		UGameplayStatics::PlaySound2D(this, HitSound);
+	}
+
+	if (HitFlashWidget) {
+		UWidgetAnimation* FlashAnim = nullptr;
+
+		const FName AnimName = FName("HitFlashAnim");
+		UClass* WidgetClass = HitFlashWidget->GetClass();
+
+		// Search for animation by sifting through all class properties
+		for (TFieldIterator<FObjectProperty> PropIt(WidgetClass); PropIt; ++PropIt) {
+			FObjectProperty* Property = *PropIt;
+
+			if (Property && Property->PropertyClass == UWidgetAnimation::StaticClass()) {
+				if (Property->GetFName() == AnimName) {
+					FlashAnim = Cast<UWidgetAnimation>(Property->GetObjectPropertyValue_InContainer(HitFlashWidget));
+					break;
+				}
+			}
+		}
+
+		if (FlashAnim)
+		{
+			HitFlashWidget->PlayAnimation(FlashAnim);
+		}
+	}
+}
+
 
 void ADungeonCrawlerPlayer::SetBonuses(int32 Health, int32 Attack)
 {

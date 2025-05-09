@@ -10,6 +10,9 @@
 #include "DungeonCrawlerMovementComponent.h"
 #include "DungeonCrawlerActor.generated.h"
 
+// Forward declaration
+class USoundBase;
+
 UCLASS()
 class DUNGEONCRAWLER2025_API ADungeonCrawlerActor : public APawn
 {
@@ -49,9 +52,14 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	USoundBase* HitSound;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void HandleDeath();
+
+	virtual void DealDamage(int32 Damage);
 };

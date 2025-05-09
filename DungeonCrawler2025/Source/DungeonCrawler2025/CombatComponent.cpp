@@ -30,7 +30,7 @@ void UCombatComponent::Attack(int32 HitDie)
 	if (HitDie >= Target->ActorCombatComponent->ArmorClass) {
 		int32 Damage = DamageRoll();
 
-		Target->ActorHealthComponent->SubtractHealth(Damage);
+		Target->DealDamage(Damage);
 	}
 }
 

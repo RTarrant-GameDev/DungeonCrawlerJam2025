@@ -35,6 +35,11 @@ void ADungeonCrawlerEnemy::HandleDeath()
 	}
 }
 
+void ADungeonCrawlerEnemy::DealDamage(int32 Damage)
+{
+	Super::DealDamage(Damage);
+}
+
 void ADungeonCrawlerEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
