@@ -42,7 +42,7 @@ void ADungeonCrawlerPlayer::BeginPlay()
 		HitFlashWidget = CreateWidget<UUserWidget>(GetWorld(), HitFlashWidgetClass);
 
 		if (HitFlashWidget) {
-			HitFlashWidget->AddToViewport(2);
+			HitFlashWidget->AddToViewport(0);
 		}
 
 	}

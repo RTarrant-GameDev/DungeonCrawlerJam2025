@@ -7,6 +7,8 @@
 #include "DiceRollManager.h"
 #include "CombatComponent.generated.h"
 
+// Forward declaration
+class USoundBase;
 class ADungeonCrawlerActor;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -21,6 +23,12 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	USoundBase* AttackSound;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	USoundBase* HitSound;
 
 public:	
 

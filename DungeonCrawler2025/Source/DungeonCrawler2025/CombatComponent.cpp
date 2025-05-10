@@ -27,8 +27,16 @@ int32 UCombatComponent::DamageRoll()
 
 void UCombatComponent::Attack(int32 HitDie)
 {
+	if (AttackSound) {
+		UGameplayStatics::PlaySound2D(this, AttackSound);
+	}
+
 	if (HitDie >= Target->ActorCombatComponent->ArmorClass) {
 		int32 Damage = DamageRoll();
+
+		if (HitSound) {
+			UGameplayStatics::PlaySound2D(this, HitSound);
+		}
 
 		Target->DealDamage(Damage);
 	}

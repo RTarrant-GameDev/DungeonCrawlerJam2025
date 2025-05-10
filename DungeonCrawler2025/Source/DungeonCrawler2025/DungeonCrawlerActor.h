@@ -55,6 +55,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Audio")
 	USoundBase* HitSound;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	USoundBase* DeathSound;
+
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

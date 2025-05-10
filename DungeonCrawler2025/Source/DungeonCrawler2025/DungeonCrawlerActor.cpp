@@ -2,6 +2,7 @@
 
 
 #include "DungeonCrawlerActor.h"
+#include <Kismet/GameplayStatics.h>
 
 // Sets default values
 ADungeonCrawlerActor::ADungeonCrawlerActor()
@@ -38,10 +39,18 @@ void ADungeonCrawlerActor::Tick(float DeltaTime)
 
 void ADungeonCrawlerActor::HandleDeath()
 {
+	if (DeathSound) {
+		UGameplayStatics::PlaySound2D(this, DeathSound);
+	}
+
 	this->Destroy();
 }
 
 void ADungeonCrawlerActor::DealDamage(int32 Damage)
 {
 	ActorHealthComponent->SubtractHealth(Damage);
+
+	if (HitSound && ActorHealthComponent->CurrentHealth > 0) {
+		UGameplayStatics::PlaySound2D(this, HitSound);
+	}
 }
