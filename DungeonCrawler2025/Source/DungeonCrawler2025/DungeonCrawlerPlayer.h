@@ -34,12 +34,15 @@ public:
 
 #pragma endregion Components
 
-#pragma region Hit Variables
+#pragma region Widget Variables
 
 	UPROPERTY(EditDefaultsOnly, Category = "UI")
 	TSubclassOf<UUserWidget> HitFlashWidgetClass;
 
-#pragma endregion Hit Variables
+	UPROPERTY(EditDefaultsOnly, Category = "UI")
+	TSubclassOf<UUserWidget> CharacterSheetWidgetClass;
+
+#pragma endregion Widget Variables
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -66,7 +69,12 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Pause")
 	void PauseGame();
 
+	void DisplayCharacterSheet();
+
 private:
 	// Instance of the widget
 	UUserWidget* HitFlashWidget;
+
+	// Instance of the widget
+	UUserWidget* CharacterSheetWidget;
 };

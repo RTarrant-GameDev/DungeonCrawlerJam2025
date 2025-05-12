@@ -41,6 +41,7 @@ void ULevelComponent::Init()
 	Level = 1;
 	MaxXP = 50;
 	CurrentXP = 0;
+	bShowLevelUpButton = false;
 }
 
 float ULevelComponent::GetXPPercentage()
@@ -61,5 +62,7 @@ void ULevelComponent::LevelUp()
 	Level++;
 	MaxXP = int32(float(MaxXP)* 1.05f);
 	CurrentXP = 0;
+	SkillPoints+=10;
+	bShowLevelUpButton = true;
 }
 

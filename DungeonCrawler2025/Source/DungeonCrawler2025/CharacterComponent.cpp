@@ -29,3 +29,16 @@ void UCharacterComponent::InitCharacterCreation(FString SelectedName, int32 Sele
 	Cast<ADungeonCrawlerPlayer>(GetOwner())->SetBonuses(EnduranceSkill, AttackSkill);
 }
 
+void UCharacterComponent::LevelUpCharacterValues(int32 Lockpick, int32 Arcana, int32 Attack, int32 Endurance, int32 Perception, int32 Wisdom)
+{
+	LockpickSkill = Lockpick;
+	ArcanaSkill = Arcana;
+	AttackSkill = Attack;
+	EnduranceSkill = Endurance;
+	PerceptionSkill = Perception;
+	WisdomSkill = Wisdom;
+
+	//Update Damage and Health bonuses to reflect new values
+	Cast<ADungeonCrawlerPlayer>(GetOwner())->SetBonuses(EnduranceSkill, AttackSkill);
+}
+

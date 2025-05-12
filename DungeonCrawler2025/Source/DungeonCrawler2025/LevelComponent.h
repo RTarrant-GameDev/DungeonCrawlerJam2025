@@ -19,6 +19,12 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "Level")
 	int32 Level;
 
+	UPROPERTY(BlueprintReadWrite, Category = "LevelUp")
+	int32 SkillPoints;
+
+	UPROPERTY(BlueprintReadWrite, Category = "LevelUp")
+	bool bShowLevelUpButton;
+
 	int32 CurrentXP;
 	int32 MaxXP;
 

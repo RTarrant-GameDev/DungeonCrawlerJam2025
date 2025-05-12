@@ -24,7 +24,9 @@ public:
 	// Sets default values for this component's properties
 	UCharacterComponent();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Details")
 	FString CharacterName;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Character Details")
 	CharacterRace ChosenRace;
 
 #pragma region Skills
@@ -46,4 +48,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "CharacterCreation")
 	void InitCharacterCreation(FString SelectedName, int32 SelectedRace, int32 Lockpick, int32 Arcana, int32 Attack, int32 Endurance, int32 Perception, int32 Wisdom);
+
+	UFUNCTION(BlueprintCallable, Category = "LevelUp")
+	void LevelUpCharacterValues(int32 Lockpick, int32 Arcana, int32 Attack, int32 Endurance, int32 Perception, int32 Wisdom);
 };

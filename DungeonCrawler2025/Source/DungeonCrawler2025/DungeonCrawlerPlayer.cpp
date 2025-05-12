@@ -29,6 +29,7 @@ void ADungeonCrawlerPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	PlayerInputComponent->BindAction("MoveLeft", IE_Pressed, this, &ADungeonCrawlerPlayer::PlayerMoveLeft);
 
 	PlayerInputComponent->BindAction("PauseGame", IE_Pressed, this, &ADungeonCrawlerPlayer::PauseGame);
+	PlayerInputComponent->BindAction("DisplayCharacterSheet", IE_Pressed, this, &ADungeonCrawlerPlayer::DisplayCharacterSheet);
 }
 
 void ADungeonCrawlerPlayer::BeginPlay()
@@ -140,4 +141,13 @@ void ADungeonCrawlerPlayer::PlayerMoveLeft()
 void ADungeonCrawlerPlayer::PlayerMoveRight()
 {
 	ActorMovementComponent->MoveRight();
+}
+
+void ADungeonCrawlerPlayer::DisplayCharacterSheet()
+{
+	CharacterSheetWidget = CreateWidget<UUserWidget>(GetWorld(), CharacterSheetWidgetClass);
+
+	if (CharacterSheetWidget) {
+		CharacterSheetWidget->AddToViewport(4);
+	}
 }
