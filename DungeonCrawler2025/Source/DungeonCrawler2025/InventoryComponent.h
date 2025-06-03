@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "InventoryItem.h"
 #include "InventoryComponent.generated.h"
 
 
@@ -24,10 +25,10 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	//void AddToInventory(UInventoryItem* ItemToAdd);
+	void AddToInventory(UInventoryItem* ItemToAdd);
 
-	//void RemoveFromInventory(UInventoryItem* ItemToRemove);
+	void RemoveFromInventory(UInventoryItem* ItemToRemove);
 
-	//UPROPERTY(EditAnywhere, Category = "Inventory Items")
-	//TArray<UInventoryItem*> InventoryItems;
+	UPROPERTY(EditAnywhere, Category = "Inventory Items")
+	TArray<UInventoryItem*> InventoryItems;
 };

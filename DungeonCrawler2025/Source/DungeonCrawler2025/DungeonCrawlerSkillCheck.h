@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "DungeonCrawlerActor.h"
+#include "InventoryItem.h"
 #include "DungeonCrawlerSkillCheck.generated.h"
 
 /**
@@ -36,6 +37,9 @@ public:
 	int32 ScoreReward;
 	UPROPERTY(EditAnywhere, Category = "SkillCheck")
 	int32 XPReward;
+
+	UPROPERTY(EditAnywhere, Category = "SkillCheck")
+	UInventoryItem* Key;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CheckStatus")
 	bool Failed;

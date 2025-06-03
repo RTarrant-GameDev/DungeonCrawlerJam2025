@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "DungeonCrawlerActor.h"
+#include "InventoryComponent.h"
 #include "DungeonCrawlerEnemy.generated.h"
 
 /**
@@ -18,10 +19,16 @@ public:
 	// Sets default values for this actor's properties
 	ADungeonCrawlerEnemy();
 
+#pragma region Components
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Inventory")
+	class UInventoryComponent* EnemyInventoryComponent;
+
+#pragma endregion Components
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
 
 	FTimerHandle TimerHandle;
 	
@@ -38,6 +45,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Rewards")
 	int32 PerceptionDifficulty;
+
+	UPROPERTY(EditAnywhere, Category = "Rewards")
+	int32 KeyPerceptionDifficulty;
 
 public:
 	// Called every frame

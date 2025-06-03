@@ -35,7 +35,12 @@ void USkillCheckComponent::SkillCheck(int32 SkillDie)
 {	
 	if (Target->Failed == false) {
 		if (Target->SkillCheckType == "Lockpick") {
-			SkillDie += Cast<ADungeonCrawlerPlayer>(GetOwner())->PlayerCharacterComponent->LockpickSkill;
+			if (HasKey == true) {
+				SkillDie = 20;
+			}
+			else {
+				SkillDie += Cast<ADungeonCrawlerPlayer>(GetOwner())->PlayerCharacterComponent->LockpickSkill;
+			}
 		}
 		else if (Target->SkillCheckType == "Arcana") {
 			SkillDie += Cast<ADungeonCrawlerPlayer>(GetOwner())->PlayerCharacterComponent->ArcanaSkill;

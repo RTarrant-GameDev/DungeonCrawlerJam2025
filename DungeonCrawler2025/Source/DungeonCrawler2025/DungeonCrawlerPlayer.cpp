@@ -14,6 +14,7 @@ ADungeonCrawlerPlayer::ADungeonCrawlerPlayer()
 	PlayerSkillCheckComponent = CreateDefaultSubobject<USkillCheckComponent>(TEXT("SkillCheckComponent"));
 	PlayerLevelComponent = CreateDefaultSubobject<ULevelComponent>(TEXT("LevelComponent"));
 	PlayerCharacterComponent = CreateDefaultSubobject<UCharacterComponent>(TEXT("CharacterComponent"));
+	PlayerInventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent"));
 }
 
 void ADungeonCrawlerPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -60,15 +61,26 @@ void ADungeonCrawlerPlayer::Tick(float DeltaTime)
 		if (NeighbouringPawn->IsA(ADungeonCrawlerEnemy::StaticClass()) || NeighbouringPawn->IsA(ADungeonCrawlerChicken::StaticClass())) {
 			ActorCombatComponent->SetTarget(NeighbouringPawn);
 			PlayerSkillCheckComponent->SetTarget(nullptr);
+			PlayerSkillCheckComponent->HasKey = false;
 		}
 		else if (NeighbouringPawn->IsA(ADungeonCrawlerSkillCheck::StaticClass())) {
+
+			ADungeonCrawlerSkillCheck* SkillCheckPawn = Cast<ADungeonCrawlerSkillCheck>(NeighbouringPawn);
+
 			ActorCombatComponent->SetTarget(nullptr);
-			PlayerSkillCheckComponent->SetTarget(NeighbouringPawn);
+			PlayerSkillCheckComponent->SetTarget(SkillCheckPawn);
+
+			for(UInventoryItem* Item : PlayerInventoryComponent->InventoryItems) {
+				if (Item == SkillCheckPawn->Key) {
+					PlayerSkillCheckComponent->HasKey = true;
+				}
+			}
 		}
 	}
 	else if (NeighbouringPawn == nullptr) {
 		ActorCombatComponent->SetTarget(nullptr);
 		PlayerSkillCheckComponent->SetTarget(nullptr);
+		PlayerSkillCheckComponent->HasKey = false;
 	}
 }
 

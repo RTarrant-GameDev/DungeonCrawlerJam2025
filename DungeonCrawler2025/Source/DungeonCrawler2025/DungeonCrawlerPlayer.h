@@ -7,6 +7,7 @@
 #include "SkillCheckComponent.h"
 #include "LevelComponent.h"
 #include "CharacterComponent.h"
+#include "InventoryComponent.h"
 #include "Animation/WidgetAnimation.h"
 #include "DungeonCrawlerPlayer.generated.h"
  
@@ -31,6 +32,9 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Character")
 	class UCharacterComponent* PlayerCharacterComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Inventory")
+	class UInventoryComponent* PlayerInventoryComponent;
 
 #pragma endregion Components
 

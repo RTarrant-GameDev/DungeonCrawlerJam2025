@@ -33,6 +33,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DiceRoll")
 	ADiceRollManager* DiceRoll;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lockpick")
+	bool HasKey;
+
 	UPROPERTY(EditAnywhere)
 	AScoreManager* ScoreManager;
 

@@ -32,13 +32,13 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	// ...
 }
 
-//void UInventoryComponent::AddToInventory(UInventoryItem* ItemToAdd)
-//{
-//	InventoryItems.Push(ItemToAdd);
-//}
-//
-//void UInventoryComponent::RemoveFromInventory(UInventoryItem* ItemToRemove)
-//{
-//	InventoryItems.Remove(ItemToRemove);
-//}
+void UInventoryComponent::AddToInventory(UInventoryItem* ItemToAdd)
+{
+	InventoryItems.Push(ItemToAdd);
+}
+
+void UInventoryComponent::RemoveFromInventory(UInventoryItem* ItemToRemove)
+{
+	InventoryItems.Remove(ItemToRemove);
+}
 
