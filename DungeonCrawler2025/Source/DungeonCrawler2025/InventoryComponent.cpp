@@ -35,10 +35,22 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 void UInventoryComponent::AddToInventory(UInventoryItem* ItemToAdd)
 {
 	InventoryItems.Push(ItemToAdd);
+
+	//Check if Item is a door key, set boolean to true, wait 5 seconds, then reset boolean to false, ready to be set to true next time
+	if (ItemToAdd->b_IsADoorKey == true) {
+		ObtainedKey = true;
+
+		this->GetOwner()->GetWorldTimerManager().SetTimer(ResetTimerHandle, this, &UInventoryComponent::ResetObtainedKeyBool, 2.5f, false);
+	}
 }
 
 void UInventoryComponent::RemoveFromInventory(UInventoryItem* ItemToRemove)
 {
 	InventoryItems.Remove(ItemToRemove);
+}
+
+void UInventoryComponent::ResetObtainedKeyBool()
+{
+	ObtainedKey = false;
 }
 

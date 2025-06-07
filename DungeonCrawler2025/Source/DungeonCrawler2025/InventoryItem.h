@@ -20,4 +20,7 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Item Info")
 	FText ItemDesc;
+
+	UPROPERTY(EditAnywhere, Category = "Door Key")
+	bool b_IsADoorKey;
 };

@@ -31,4 +31,11 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Inventory Items")
 	TArray<UInventoryItem*> InventoryItems;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Key")
+	bool ObtainedKey;
+
+	void ResetObtainedKeyBool();
+
+	FTimerHandle ResetTimerHandle;
 };

@@ -36,14 +36,15 @@ void ADungeonCrawlerEnemy::HandleDeath()
 	}
 
 	if ((DiceRoll->DiceRoll(20) + PerceptionBonus) >= KeyPerceptionDifficulty){
-
-		if (!(Player->PlayerInventoryComponent->InventoryItems.Contains(EnemyInventoryComponent->InventoryItems[0]))) {
-			UE_LOG(LogTemp, Display, TEXT("Key Acquired!"))
-				Player->PlayerInventoryComponent->AddToInventory(EnemyInventoryComponent->InventoryItems[0]);
-			EnemyInventoryComponent->RemoveFromInventory(EnemyInventoryComponent->InventoryItems[0]);
-		}
-		else {
-			Player->PlayerSkillCheckComponent->ScoreManager->AddScore(ScoreReward * 1 + (.75 * PerceptionBonus));
+		if (EnemyInventoryComponent->InventoryItems[0] != nullptr) {
+			if (!(Player->PlayerInventoryComponent->InventoryItems.Contains(EnemyInventoryComponent->InventoryItems[0]))) {
+				UE_LOG(LogTemp, Display, TEXT("Key Acquired!"))
+					Player->PlayerInventoryComponent->AddToInventory(EnemyInventoryComponent->InventoryItems[0]);
+				EnemyInventoryComponent->RemoveFromInventory(EnemyInventoryComponent->InventoryItems[0]);
+			}
+			else {
+				Player->PlayerSkillCheckComponent->ScoreManager->AddScore(ScoreReward * 1 + (.75 * PerceptionBonus));
+			}
 		}
 	}
 }
