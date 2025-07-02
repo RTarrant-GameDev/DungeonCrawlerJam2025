@@ -2,13 +2,14 @@
 
 #pragma once
 
+#include "Animation/WidgetAnimation.h"
+#include "CharacterComponent.h"
+#include "CharacterEquipmentComponent.h"
 #include "CoreMinimal.h"
 #include "DungeonCrawlerActor.h"
-#include "SkillCheckComponent.h"
-#include "LevelComponent.h"
-#include "CharacterComponent.h"
 #include "InventoryComponent.h"
-#include "Animation/WidgetAnimation.h"
+#include "LevelComponent.h"
+#include "SkillCheckComponent.h"
 #include "DungeonCrawlerPlayer.generated.h"
  
 // Forward declarations
@@ -36,6 +37,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Inventory")
 	class UInventoryComponent* PlayerInventoryComponent;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Character Equipment")
+	class UCharacterEquipmentComponent* PlayerCharacterEquipmentComponent;
+
 #pragma endregion Components
 
 #pragma region Widget Variables
@@ -60,6 +64,9 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	virtual void DealDamage(int32 Damage) override;
+
+	UPROPERTY(EditAnywhere, Category = "Armor Test")
+	UArmorItem* TestArmor;
 
 	void SetBonuses(int32 Health, int32 Attack);
 

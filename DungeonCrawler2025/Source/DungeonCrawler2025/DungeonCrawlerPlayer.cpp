@@ -15,6 +15,7 @@ ADungeonCrawlerPlayer::ADungeonCrawlerPlayer()
 	PlayerLevelComponent = CreateDefaultSubobject<ULevelComponent>(TEXT("LevelComponent"));
 	PlayerCharacterComponent = CreateDefaultSubobject<UCharacterComponent>(TEXT("CharacterComponent"));
 	PlayerInventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent"));
+	PlayerCharacterEquipmentComponent = CreateDefaultSubobject<UCharacterEquipmentComponent>(TEXT("CharacterEquipmentComponent"));
 }
 
 void ADungeonCrawlerPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
