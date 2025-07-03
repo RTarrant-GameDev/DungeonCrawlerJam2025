@@ -32,9 +32,6 @@ void ADungeonCrawlerPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
 	PlayerInputComponent->BindAction("PauseGame", IE_Pressed, this, &ADungeonCrawlerPlayer::PauseGame);
 	PlayerInputComponent->BindAction("DisplayCharacterSheet", IE_Pressed, this, &ADungeonCrawlerPlayer::DisplayCharacterSheet);
-
-	PlayerInputComponent->BindAction("EquipWeapon", IE_Pressed, this, &ADungeonCrawlerPlayer::EquipWeapon);
-	PlayerInputComponent->BindAction("UnequipWeapon", IE_Pressed, this, &ADungeonCrawlerPlayer::UnequipWeapon);
 }
 
 void ADungeonCrawlerPlayer::BeginPlay()
@@ -166,14 +163,4 @@ void ADungeonCrawlerPlayer::DisplayCharacterSheet()
 	if (CharacterSheetWidget) {
 		CharacterSheetWidget->AddToViewport(4);
 	}
-}
-
-void ADungeonCrawlerPlayer::EquipWeapon()
-{
-	PlayerCharacterEquipmentComponent->EquipWeapon(TestWeapon);
-}
-
-void ADungeonCrawlerPlayer::UnequipWeapon()
-{
-	PlayerCharacterEquipmentComponent->UnequipWeapon();
 }

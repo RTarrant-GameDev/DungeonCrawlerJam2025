@@ -82,10 +82,6 @@ public:
 
 	void DisplayCharacterSheet();
 
-	// Weapon equip test
-	void EquipWeapon();
-	void UnequipWeapon();
-
 private:
 	// Instance of the widget
 	UUserWidget* HitFlashWidget;
