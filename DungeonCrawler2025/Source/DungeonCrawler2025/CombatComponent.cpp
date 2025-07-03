@@ -32,7 +32,7 @@ void UCombatComponent::Attack(int32 HitDie)
 	}
 
 	if (HitDie >= Target->ActorCombatComponent->ArmorClass) {
-		int32 Damage = DamageRoll();
+		int32 Damage = (DamageRoll() + AttackBonus);
 
 		if (HitSound) {
 			UGameplayStatics::PlaySound2D(this, HitSound);

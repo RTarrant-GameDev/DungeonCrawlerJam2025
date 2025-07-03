@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "ArmorItem.h"
+#include "WeaponItem.h"
 #include "CharacterEquipmentComponent.generated.h"
 
 
@@ -24,6 +25,9 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Character Equipment")
 	UArmorItem* EquippedArmor;
 
+	UPROPERTY(EditAnywhere, Category = "Character Equipment")
+	UWeaponItem* EquippedWeapon;
+
 	UPROPERTY(VisibleAnywhere, Category="Character Equipment Stats")
 	int32 ArmorClass;
 
@@ -35,4 +39,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void UnequipArmor();
+
+	UFUNCTION(BlueprintCallable)
+	void EquipWeapon(UWeaponItem* NewWeapon);
+
+	UFUNCTION(BlueprintCallable)
+	void UnequipWeapon();
 };

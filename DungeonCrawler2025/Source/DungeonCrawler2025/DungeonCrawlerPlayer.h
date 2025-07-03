@@ -65,8 +65,8 @@ public:
 
 	virtual void DealDamage(int32 Damage) override;
 
-	UPROPERTY(EditAnywhere, Category = "Armor Test")
-	UArmorItem* TestArmor;
+	UPROPERTY(EditAnywhere, Category = "Weapon Test")
+	UWeaponItem* TestWeapon;
 
 	void SetBonuses(int32 Health, int32 Attack);
 
@@ -81,6 +81,10 @@ public:
 	void PauseGame();
 
 	void DisplayCharacterSheet();
+
+	// Weapon equip test
+	void EquipWeapon();
+	void UnequipWeapon();
 
 private:
 	// Instance of the widget

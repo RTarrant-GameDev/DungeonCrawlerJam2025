@@ -41,6 +41,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DiceRoll")
 	ADiceRollManager* DiceRoll;
 
+	UPROPERTY(EditAnywhere)
 	int32 AttackBonus;
 
 	UFUNCTION(BlueprintCallable, Category = "Damage")

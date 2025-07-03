@@ -40,3 +40,22 @@ void UCharacterEquipmentComponent::UnequipArmor()
 	ArmorClass = 0;
 }
 
+void UCharacterEquipmentComponent::EquipWeapon(UWeaponItem* NewWeapon)
+{
+	if (EquippedWeapon != NULL) {
+		UnequipWeapon();
+	}
+
+	EquippedWeapon = NewWeapon;
+
+	WeaponAttack = EquippedWeapon->AttackDamageBonus;
+	Cast<ADungeonCrawlerPlayer>(GetOwner())->ActorCombatComponent->AttackBonus += WeaponAttack;
+}
+
+void UCharacterEquipmentComponent::UnequipWeapon()
+{
+	EquippedWeapon = NULL;
+	Cast<ADungeonCrawlerPlayer>(GetOwner())->ActorCombatComponent->AttackBonus -= WeaponAttack;
+	WeaponAttack = 0;
+}
+
