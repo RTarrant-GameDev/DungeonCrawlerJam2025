@@ -50,6 +50,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "UI")
 	TSubclassOf<UUserWidget> CharacterSheetWidgetClass;
 
+	UPROPERTY(EditDefaultsOnly, Category = "UI")
+	TSubclassOf<UUserWidget> InventoryWidgetClass;
+
 #pragma endregion Widget Variables
 
 	// Called to bind functionality to input
@@ -82,10 +85,15 @@ public:
 
 	void DisplayCharacterSheet();
 
+	void DisplayInventory();
+
 private:
 	// Instance of the widget
 	UUserWidget* HitFlashWidget;
 
 	// Instance of the widget
 	UUserWidget* CharacterSheetWidget;
+	
+	//
+	UUserWidget* InventoryWidget;
 };

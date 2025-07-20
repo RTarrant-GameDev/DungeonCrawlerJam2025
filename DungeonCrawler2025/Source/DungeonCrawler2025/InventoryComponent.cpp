@@ -13,25 +13,6 @@ UInventoryComponent::UInventoryComponent()
 	// ...
 }
 
-
-// Called when the game starts
-void UInventoryComponent::BeginPlay()
-{
-	Super::BeginPlay();
-
-	// ...
-	
-}
-
-
-// Called every frame
-void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
-}
-
 void UInventoryComponent::AddToInventory(UInventoryItem* ItemToAdd)
 {
 	InventoryItems.Push(ItemToAdd);
@@ -47,6 +28,18 @@ void UInventoryComponent::AddToInventory(UInventoryItem* ItemToAdd)
 void UInventoryComponent::RemoveFromInventory(UInventoryItem* ItemToRemove)
 {
 	InventoryItems.Remove(ItemToRemove);
+}
+
+TArray<UInventoryItem*> UInventoryComponent::GetInventoryItems()
+{
+	return InventoryItems;
+}
+
+UInventoryItem* UInventoryComponent::GetItem(int32 SlotNumber)
+{
+	UInventoryItem* RetrievedItem = InventoryItems[SlotNumber];
+
+	return RetrievedItem;
 }
 
 void UInventoryComponent::ResetObtainedKeyBool()

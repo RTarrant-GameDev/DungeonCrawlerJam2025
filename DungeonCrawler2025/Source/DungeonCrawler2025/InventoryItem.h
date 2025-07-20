@@ -15,11 +15,14 @@ class DUNGEONCRAWLER2025_API UInventoryItem : public UPrimaryDataAsset
 	GENERATED_BODY()
 	
 public:
-	UPROPERTY(EditAnywhere, Category = "Item Info")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Info")
 	FString ItemName;
 
-	UPROPERTY(EditAnywhere, Category = "Item Info")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Info")
 	FText ItemDesc;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Info")
+	UTexture2D* ItemIcon;
 
 	UPROPERTY(EditAnywhere, Category = "Door Key")
 	bool b_IsADoorKey;

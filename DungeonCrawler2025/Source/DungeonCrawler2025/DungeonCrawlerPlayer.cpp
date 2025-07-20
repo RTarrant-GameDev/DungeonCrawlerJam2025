@@ -32,6 +32,7 @@ void ADungeonCrawlerPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
 	PlayerInputComponent->BindAction("PauseGame", IE_Pressed, this, &ADungeonCrawlerPlayer::PauseGame);
 	PlayerInputComponent->BindAction("DisplayCharacterSheet", IE_Pressed, this, &ADungeonCrawlerPlayer::DisplayCharacterSheet);
+	PlayerInputComponent->BindAction("DisplayInventory", IE_Pressed, this, &ADungeonCrawlerPlayer::DisplayInventory);
 }
 
 void ADungeonCrawlerPlayer::BeginPlay()
@@ -162,5 +163,14 @@ void ADungeonCrawlerPlayer::DisplayCharacterSheet()
 
 	if (CharacterSheetWidget) {
 		CharacterSheetWidget->AddToViewport(4);
+	}
+}
+
+void ADungeonCrawlerPlayer::DisplayInventory()
+{
+	InventoryWidget = CreateWidget<UUserWidget>(GetWorld(), InventoryWidgetClass);
+
+	if (InventoryWidget) {
+		InventoryWidget->AddToViewport(4);
 	}
 }
